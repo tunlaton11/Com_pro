@@ -10,7 +10,7 @@ def main():
         for _ in range(num):
             num_array[member].append(int(input()))
 
-    num_array_t = [list(i) for i in zip(*num_array)] #Transpose_array_
+    num_array_t = [list(i) for i in zip(*num_array)] #Transpose_array___
 
     left = [min(i) for i in num_array]
     right = [max(j) for j in num_array_t]
