@@ -28,6 +28,4 @@ def main():
         print("+-+-+-+\n")
         count += 1
 
-
-
 main()
