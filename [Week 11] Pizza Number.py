@@ -1,6 +1,6 @@
 """[Week 11] Pizza Number"""
 
-def findsum(pizza, target): #check possible sum
+def findsum(pizza, target): #check possible sum**
     """[Week 11] Pizza Number"""
     possible_sum = [[] for i in range(target + 1)]
 
@@ -25,6 +25,6 @@ def main():
         for i in list2:
             print(str(i).replace("[", '').replace("]", ''))
     else:
-        print("no")
+        print("no") 
 
 main()
