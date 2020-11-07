@@ -5,10 +5,10 @@ def main():
     """[Week 11] Wildcard"""
     num = int(input())
     part = input()
-    lisx = part.split("*")
+    check = part.split("*")
     for _ in range(num):
         word = input()
-        if word.startswith(lisx[0]) and word.endswith(lisx[1]) and len(word) >= len(part)-1:
+        if word.startswith(check[0]) and word.endswith(check[1]) and len(word) >= l -1:
             print("YES")
         else:
             print("NO")
