@@ -1,6 +1,6 @@
 """[Week 11] Pizza Number"""
 
-def findsum(pizza, target):
+def findsum(pizza, target): #check possible sum
     """[Week 11] Pizza Number"""
     possible_sum = [[] for i in range(target + 1)]
 
