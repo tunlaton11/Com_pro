@@ -2,7 +2,7 @@
 
 
 def bowling_score(line):
-    """[Week 11] Bowling""" #1234
+    """[Week 11] Bowling""" #test
     score = 0
     for i in range(len(line)):
         if line[i] == 'X':
