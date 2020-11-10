@@ -1,45 +1,74 @@
 """[Week 11] Bowling"""
 
 
-def bowling_score(line):
-    """[Week 11] Bowling""" #test
-    score = 0
-    for i in range(len(line)):
-        if line[i] == 'X':
-            line[i] = 10
-        elif line[i] == '-':
-            line[i] = 0
-        elif line[i] == '/':
-            continue
-        else:
-            line[i] = int(line[i])
-    for j in range(len(line)):
-        ball = line[j]
-        if len(line) - 3 <= j:
-            if ball == '/':
-                score += (10 - line[j - 1])
+def result(log, rep, i):
+    """[Week 11] Bowling"""
+    keep = 0
+    bow = 10
+    if i == "X":
+        for i in rep[log: log+2]:
+            if i == "X":
+                keep += 10
+            elif i == "/":
+                keep += bow
+            elif i == "-":
+                keep += 0
             else:
-                score += ball
-            continue
-        elif ball == 10:
-            score += ball
-            score += line[j + 1]
-            if line[j + 2] == '/':
-                score += (10 - line[j + 1])
+                keep += int(i)
+                bow -= int(i)
+        return keep
+    else:
+        for i in rep[log: log+1]:
+            if i == "X":
+                keep += 10
+            elif i == "/":
+                keep += bow
+            elif i == "-":
+                keep += 0
             else:
-                score += line[j + 2]
-        elif ball == '/':
-            score += (10 - line[j - 1])
-            score += line[j + 1]
-        else:
-            score += ball
-    return score
+                keep += int(i)
+                bow -= int(i)
+        return keep
 
 
 def main():
     """[Week 11] Bowling"""
-    line = list(''.join(input().split()))
-    print(bowling_score(line))
+    frame = input()
+    score = 0
+    count = 1
+    ball = 10
+    rep = frame.replace(" ", "")
+    log = 0
+    for i in frame:
+        if count <= 9:
+            if i == " ":
+                count += 1
+                ball = 10
+            elif i == "X":
+                log += 1
+                score += 10 + result(log, rep, i)
+            elif i == "/":
+                log += 1
+                score += ball + result(log, rep, i)
+            elif i == "-":
+                log += 1
+                score += 0
+            else:
+                log += 1
+                score += int(i)
+                ball -= int(i)
+        else:
+            if i == "X":
+                score += 10
+            elif i == "/":
+                score += ball
+                ball = 10
+            elif i == "-":
+                score += 0
+            else:
+                score += int(i)
+                ball -= int(i)
+    print(score)
 
 
 main()

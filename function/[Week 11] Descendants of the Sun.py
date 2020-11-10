@@ -4,7 +4,7 @@
 import math
 
 
-def check_direct(lat1, lat2, lon1, lon2): #check direction of lat and lon
+def check_direct(lat1, lat2, lon1, lon2): #return direction between two points
     """[Week 11] Descendants of the Sun"""
     if lon2 == lon1 and lat2 > lat1:
         direct = "N"
@@ -25,7 +25,7 @@ def check_direct(lat1, lat2, lon1, lon2): #check direction of lat and lon
     return direct
 
 
-def check_result(lat1, lat2, lon1, lon2):
+def check_result(lat1, lat2, lon1, lon2): #return the distance between two points
     """[Week 11] Descendants of the Sun"""
     rad = 6378.137
     result = 2 * rad * math.asin(math.sqrt(math.sin((lat2 - lat1) / 2) ** 2 + \
@@ -33,13 +33,13 @@ def check_result(lat1, lat2, lon1, lon2):
     return "%.2f" % result + "km"
 
 
-def main():
-    """[Week 11] Descendants of the Sun"""
+def main(): #main fucntoion 
+    """[Week 11] Descendants of the Sun""" 
     num = int(input())
     if 1 <= num <= 10:
         data = []
         sub = []
-        for _ in range(num + 1):
+        for _ in range(num + 1): #convert input to tuple in list
             word = input()
             for j in word.split(", "):
                 word = float(j.replace("(", "").replace(")", ""))
@@ -47,7 +47,7 @@ def main():
             data.append(tuple(sub))
             sub = []
 
-        for i in range(num):
+        for i in range(num): #sort the data in list until it's end
             lat1 = math.radians(data[i][0])
             lon1 = math.radians(data[i][1])
             lat2 = math.radians(data[i+1][0])
