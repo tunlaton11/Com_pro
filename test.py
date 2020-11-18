@@ -1,13 +1,19 @@
-# Creating a recursive function  
-def hanoi_tower(disks, source, auxiliary, target):  
-    if(disks == 1):  
-        print(source, target))  
-        return  
-    # function call itself  
-    hanoi_tower(disks - 1, source, target, auxiliary)  
-    print('Move disk {} from rod {} to rod {}.'.format(disks, source, target))  
-    hanoi_tower(disks - 1, auxiliary, source, target)  
+import time
 
-
-# We are referring source as A, auxiliary as B, and target as C  
-hanoi_tower(int(input()), '1', '2', '3')  # Calling the function  
+def main():
+    """[Week 10] Queen Way"""
+    q_row = int(input())
+    q_col = int(input())
+    print(" _" * 8)
+    for i in range(8): #rows
+        for j in range(8): #column
+            if i == q_row and j == q_col:
+                print("|" + "Q", end='')
+            elif q_col == j or q_row == i or abs(q_col - j) == abs(q_row - i):
+                print("|" + "x", end='')
+            else:
+                print("|" + "_", end='')
+        print("|")
+start_time = time.time()
+main()
+print((time.time()-start_time)* 1000)

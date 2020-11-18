@@ -1,7 +1,8 @@
 """[Week 12] Hanoi"""
 
 
-def hanoi_tower(disks, move1, move2, target):  
+def hanoi_tower(disks, move1, move2, target):
+    """[Week 12] Hanoi"""
     if disks == 1:
         print(move1, target)
         return
