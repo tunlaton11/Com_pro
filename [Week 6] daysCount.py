@@ -43,11 +43,11 @@ def count(day_count):
         ordi = "st"
     elif str(day_count)[-1] == "2":
         ordi = "nd"
-    elif str(day_count)[-1] == "3":
+    elif str(day_count)[-1] == "3":  
         ordi = "rd"
     else:
         ordi = "th"
     new = " is the " + str(day_count) + ordi + " days of the year"
     return new
 
-main()
+main()  
